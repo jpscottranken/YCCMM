@@ -1,0 +1,362 @@
+0.	Review the follwoing URLs:
+
+	https://www.w3schools.com/
+	https://www.w3schools.com/html/default.asp
+	https://www.w3schools.com/css/default.asp
+	https://www.w3schools.com/js/default.asp
+	https://developer.mozilla.org/en-US/
+	https://developer.mozilla.org/en-US/docs/Learn
+
+	https://www.youtube.com/playlist?list=PLHmT264NWfhr_YEpaa0Pl2bid120YmQUs
+
+1.	Show simple how to add JavaScript inline, "internal", external.
+
+2.	Show the console.  F12 (DevTools)/Console.  Type documentinto here.
+	With the <h1> tag in place, key in the following:
+	document.querySelector('h1').style.color = 'red'; into console.
+	//	for single-line comments
+	/*
+		for multi-line comments
+	 */
+	For strings, you can use "" or '' not "', '"
+	
+	Also, JavaScript IS CASE SENSITIVE!!!
+	
+	Into .html file, enter console.log("This is a test.");
+	Strings are black, numbers are blue, booleans are blue.	
+	Show console.error() and console.clear()
+	
+3.	var vs. let vs. const
+	variable declaration = variable initialization
+	letters and numbers only.  camelCase vs. PascalCase
+	Use constants unless plan on a value change.
+	
+4.	JavaScript primitive data types are (typeof): 
+	String, Number, Boolean, Null, Undefined, Symbols*
+
+	JavaScript reference data types are:
+	Arrays, Object Literals, Functions, Dates, all others
+	
+	JavaScript is a dynamically typed language.
+	
+5.	Type conversion:
+	Number  to String: val age = 21; 		 // to 
+					   val age = String(21); // or
+					   age = age.toString();
+	Boolean to String: val isMarried = true; // to
+					   val String(isMarried);
+					   
+	NaN is Not a Number.  Show parseInt() and parseFloat()
+
+6.	Numbers and the Math object.  +, -, *, /, %, ++, --.
+	Math.PI(), Math.min(), Math.max(),
+	Math.round(), Math.ceil(), Math.floor(),
+	Math.sqrt(), Math.abs(), Math.pow(), Math.random()
+	
+7.	Strings and concatenation.  Template literals.
+	Escape characters, \n, \t, \', \", \\.
+	concat(), toUpperCase(), toLowerCase()
+	
+8.	Arrays.
+
+	const arr1 = [23, 45, 66,55];
+	const arr2 = new Array(11, 32, 44, 56);
+	const arr3 = [19, "hello", false, 356];
+	let   len  = arr3.length;	//  4
+	let   num  = arr3[3];		//  356
+	push    adds to array end
+	pop     removes from array end
+	shift   add to array start
+	unshift removes from arry start
+	slice   removes from range
+	splice  removes from range changes
+	spread
+	rest
+	reverse reverses  order
+	sort    sorts the array
+
+9.	Object Literals - Not now.  "this" keyword.
+
+10.	Dates and Times - Not now.  const today = new Date(); "0" based.
+
+11.	if statement and comparison operator. !, &&, ||
+
+	let number = prompt("Enter a number");
+	if (isNaN(number)) {		//	Boolean condition
+		alert("Invalid Input");
+	} else if (number === 0) {
+		alert("0 is neither positive nor negative");
+	} else if (number % 2 === 0) {
+		alert(`The number ${number} is even`);
+	} else if (number % 2 !== 0) {
+		alert(`The number ${number} is odd`);
+	} else {
+		alert("This should NEVER be hit!");
+	}
+
+
+12.	if statement vs. switch:
+
+	let size = prompt("Please enter your size (S, M, L, or XL)");
+	if (size.trim() === "")	{	//	No input
+		alert("No input!");
+		return;
+	}
+
+	size = size.toUpperCase();
+
+	if ((size !== "S") && (size !== "M") &&
+	    (size !== "L") && (size !== "XL")) {
+		alert("Invalid size inputted");
+	} else if (size === "S") {
+		alert("Size small");
+	} else if (size === "M") {
+		alert("Size medium");
+	} else if (size === "L") {
+		alert("Size large");
+	} else if (size === "XL") {
+		alert("SIze extra-large");
+	} else {
+		alert("Unknown size");
+	}
+
+	let size = prompt("Please enter your size (S, M, L, or XL)");
+	if (size.trim() === "")	{	//	No input
+		alert("No input!");
+		return;
+	}
+
+	size = size.toUpperCase();
+
+	switch (size) {
+		case "S":
+			alert("Size small");
+			break;
+		case "M":
+			alert("Size medium");
+			break;
+		case L":
+			alert("Size large");
+			break;
+		case "XL":
+			alert("SIze extra-large");
+			break;
+		default:
+			alert("Invalid size inputted");
+			break;
+	}
+
+13.	Ternary
+
+	int num1 = prompt("Please enter a number");
+	int num2 = prompt("Please enter another number");
+	int max1 = Math.max(num1, num2);
+
+	alert ("The max number is: "  + max1);
+
+	int max2;
+
+	if (num1 >= num2) {
+		max2 = num1;
+	} else if (num2 > num1) {
+		max2 = num2;
+	} else {
+		max2 = "Bad input(s)";
+	}
+
+	alert ("The max number is: "  + max2);
+
+	int max3 = (num1 >= num2) ? num1 : num2;
+
+	alert ("The max number is: "  + max32);
+
+14.	Functions:
+
+	int num1 = 33;
+	int num2 = 46;
+	alert(`The sum of ${num1} + ${num2} = add2(num1, num2)`);
+	alert(`The sum is add2()`);
+
+	function add2(n1 = 20, n2 = 30) {
+		return n1 + n2;
+	}
+
+	Function Expression:
+
+	const square = function(n1) {
+		return n1 * n1;
+	}
+
+	let number = 8;
+	alert(`The square of ${number} is: ` + square(number))
+
+	IIFE:
+	(function() {
+		console.log("This is an IIFE...");
+	})();
+
+15.	Loops:
+
+	while (pre-test)
+	let lcv = 1;
+	while (lcv <= 10) {
+		alert(`The current value of lcv is ${lcv}`);
+		++lcv;
+	}
+
+	for   (pre-test)
+	for (int lcv = 1; lcv <= 10; ++lcv) {
+		alert(`The current value of lcv is ${lcv}`);
+	}
+
+	do/while (post-test)
+	do {
+		alert(`The current value of lcv is ${lcv}`);
+		++lcv;
+	} while (lcv <= 10);
+
+	//	Using break;
+	for (int lcv = 1; lcv <= 10; ++lcv) {
+		if (lcv === 4) {
+			break;
+		}
+
+		alert(`The current value of lcv is ${lcv}`);
+		//prints: 	The current value of lcv is 1
+		//		The current value of lcv is 2
+		//		The current value of lcv is 3
+
+	}
+
+	//	Using continue;
+	for (int lcv = 1; lcv <= 10; ++lcv) {
+		if (lcv === 4) {
+			continue
+		}
+
+		alert(`The current value of lcv is ${lcv}`);
+		//prints: 	The current value of lcv is 1
+		//		The current value of lcv is 2
+		//		The current value of lcv is 3
+		//		The current value of lcv is 5
+		//		The current value of lcv is 6
+		//		The current value of lcv is 7
+		//		The current value of lcv is 8
+		//		The current value of lcv is 9
+		//		The current value of lcv is 10
+
+	}
+
+	const names = ["Jeff", "Charles", "Chad", "Evan", "Paul"]
+	for (let lcv = 0; lcv < names.length; ++lcv) {
+		alert(`Car #${lcv} is: ${cars[lcv]}`);
+	}
+
+	//	Another way of doing this:
+	names.forEach(function (name) {
+		alert(`Car #${lcv} is: ${cars[lcv]}`);
+	}
+
+	//	And another way of doing this:
+	names.forEach(function (name, index) {
+		alert(`Car #${index} is: ${cars[lcv]}`);
+	}
+
+	const users = [
+		{id: 1, name: "Jeff"},
+		{id: 2, name: "Charles"},
+		{id: 3, name: "Chad"},
+		{id: 4, name: "Evan"},
+		{id: 5, name: "Paul"},
+	];
+
+	const theIDs = users.map(function(user) {
+		return user.id;
+	});
+
+	console.log(theIds);
+
+	//	for/in
+	const user = {
+		firstName: "John",
+		lastName:  "Doe",
+		age:       35
+	}
+
+	for(let x in user) {
+		console.log(x);				// keys (firstName, lastName, age)
+		console.log(`${x} : ${user[x]`}		// values (John, Doe, 35)
+	}
+
+16.	Window object:  alert, prompt, confirm
+	
+	Go into console, type in window<enter> to see all stuff
+
+	console.log("Hello");  === window.console.log("Hello");
+
+	if (confirm("Are you sure you want to exit?")) {
+		alert("You clicked ok");
+	} else {
+		alert("You clicked cancel");
+	}
+
+	let ow = window.outerWidth;
+	let oh = window.outerHeight;
+
+	alert(`The outerWidth is ${ow} and the outerHeight is ${oh}`);
+
+	//	Location  object.  val = window.location;  console.log(val);
+	//	History   object.  window.history.go-1);
+	//	Navigator object.  val = window.navigator; console.log(val);
+
+17.	Block Scope w/ var vs. let & const:
+
+	Global   scope (outside of any function).
+	Function scope (inside  of function only).
+	Block    scope (within set of "{}")
+
+18.	
+
+19.	
+
+20.	
+
+21.	
+
+22.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+22.	
+
+23.	
+	
+24.	
+
+25.	
+
+26.		
+
+27.	
+	
+28.	
+
+29.	
+
+30.	Let's add JavaScript to our YCCMeMO website now!!!
+

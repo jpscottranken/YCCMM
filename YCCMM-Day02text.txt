@@ -1,0 +1,987 @@
+0.	Review the follwoing URLs:
+
+	https://www.w3schools.com/
+	https://www.w3schools.com/html/default.asp
+	https://www.w3schools.com/css/default.asp
+	https://www.w3schools.com/js/default.asp
+	https://developer.mozilla.org/en-US/
+	https://developer.mozilla.org/en-US/docs/Learn
+
+	https://www.youtube.com/playlist?list=PLHmT264NWfhr_YEpaa0Pl2bid120YmQUs
+
+1.	Open folder callmemo (You can call me MO) using VSCode
+
+2.	Let's create a new "dummy" file here called junk.html
+	We will use this file as a "sandbox" and you may keep/toss it at the end.
+
+3.	Open junk.html in VSCode.
+
+4.	Use "!<tab>" Emmet to get some starter code.
+
+5.	Add the following in the <body> section of junk.html:
+
+	<h1>This is an &lt;h1&gt; tag</h1>	and hit <enter>
+	<h2>This is an &lt;h2&gt; tag</h2>	and hit <enter>
+	<h3>This is an &lt;h3&gt; tag</h3>	and hit <enter>
+
+6.	Save this and open up the page with Live Server.
+
+	First let's look at inline CSS.
+
+	Change the first line above to the following:
+	<h1 style="color: red">This is an &lt;h1&gt; tag</h1>	and hit <enter>
+
+	Change the second line above to the following:
+	<h2 style="font-size: 2rem">This is an &lt;h2&gt; tag</h2>	and hit <enter>
+
+	Change the third line above to the following:
+	<h3 style="color: blue; background: yellow">This is an &lt;h3&gt; tag</h3>	and hit <enter>
+
+	Save junk.html and open up the page with Live Server.
+
+	This should NOT be used due to the "separation of concerns" (i.e. HTML,
+	CSS, and JavaScript each in their own files).  However, let's look at
+	where it "might" be used.
+
+	Change this line:
+	<h1 style="color: red">This is an &lt;h1&gt; tag</h1>	and hit <enter>
+
+	to the following:
+	<h1><span style="font-size: 2rem">T</span>his is an &lt;h1&gt; tag</h1>	and hit <enter>
+
+	If used (and again this should be done rarely if at all),
+	inline CSS should be used to style an individual element on a web page.
+
+7.	Next, let's look internal CSS, which is typically used on a
+	"per web page" basis.
+
+	At the bottom of the <head> section, right before the </head> tag,
+	add the following:
+
+	<style>
+		h1 {
+			color: red;
+		}
+
+		h2 {
+			font-size: 2rem;
+		}
+
+		h3 {
+			color: blue; 
+			background: yellow;
+		}
+	</style>
+
+	Next make the <h1>, <h2> and <h3> tags look like they did
+	originally, i.e. change them back to the following:
+
+	<h1>This is an &lt;h1&gt; tag</h1>	and hit <enter>
+	<h2>This is an &lt;h2&gt; tag</h2>	and hit <enter>
+	<h3>This is an &lt;h3&gt; tag</h3>	and hit <enter>
+	
+	Save junk.html and open up the page with Live Server.
+
+	This is "better" than using the inline CSS earlier, but
+	still not optimal, as we are still putting the CSS in the
+	same file as the HTML.
+
+	The syntax here is as follows:
+	These are collectively known as style rules.
+	The h1, h2, and h3 are each known as selectors.
+	The color:, font-size:, color:, and background: are known as properties.	
+	The red; 2rem; blue; and yellow; are known as values.  Each (but the
+	last one) MUST end with a semicolon (;), which is known as the
+	property/value separator.  The last style rule ending with a
+	semicolon is optional but still recommended.  The property(ies) and
+	value(s) must be "bookended" inside of curly braces.  ({}).
+	  
+8.	CSS comments go between /* and */ tags, as opposed to
+	HTML comments, which go between <!-- and --> tags.
+
+9.	Now we will see external CSS (best) in action.
+	If you do not already have a css folder, create it now.
+	In this folder, create a styles.css file.
+
+	In the junk.html file, highlight everything from the
+	beginning <style> tag through the ending </style> tag
+	a cut it to the clipboard.
+
+	Open the styles.css file and copy everthing from the
+	clipboard to this file.  Remove the <style> and </style>
+	tags and reformat the remaineder of the file accordingly.
+
+	Save the style.css file and then go back to the
+	junk.html file.
+
+	Make sure that the <style>...</style> and all
+	inside of it has been removed.  Replace this with:
+	<link rel="stylesheet" href="css/styles.css">
+	A "shortcut" is to key in link<tab> (Emmet shortcut).
+
+	Save junk.html and open up the page with Live Server.
+
+	This is the preferred method, as there is now the
+	"separation of concerns" as discussed previously.
+
+	That said, as we are "building" our CSS, we will
+	use the second method (internal) so that: a) We
+	will not have to be constantly switching back and
+	forth between the .html file and the .css file and
+	b) So that we can immediately see our changes once
+	we save and view in Live Server.
+
+10.	Selectors vs. IDs vs. Classes
+
+	So far, we have just used element or widget
+	selectors.  Using the h1 changes all h1 tags,
+	p would change all p tags, etc.
+
+	What is we wanted to change just some <h2> tags
+	along with just some paragraphs?  This is where
+	classes and ids come in.
+
+	Let's remove all of the current <body> content
+	except for the <h1> tag.
+
+	Then add the following:
+
+	<div id="welcome">
+		<h2>Welcome</h2>
+		<p>lorem 30 <tab></p>
+	</div>
+
+	<div id="about">
+		<h2>About</h2>
+		<p>lorem 30 <tab></p>
+	</div>
+
+11.	Add the following to the internal CSS in the <head>:
+	<style>
+		h2 {
+			color: green;
+		}
+	</style>
+
+	Note that BOTH h2 tags turned green.  But what if we
+	only wanted the first one to turn green.  This is where
+	IDs and/or Classes come in.  In the <style>, change the
+	h2 to h2#green-heading and the first <h2> in the <body>
+	section to <h2 id="green-heading">.  Save and look at it
+	in Live Server.  Only the first h2 should now be green.
+
+	Note that the h2 before #green-heading is optional and
+	if removed, could apply to any element, e.g. a paragraph.
+	However, then the name green-heading is not a good name.
+
+	Better to change the <h2 id="green-heading"> to 
+	<h2 class="green-heading"> and the h2#green-heading to
+	h2.green-heading or (probably) just .green-heading so
+	it could be used on any element (name change better).
+	Change the name from green-heading to primary--heading
+	for example, makes more sense here.
+
+	Add the following to the CSS:
+	#welcome {
+		background: "yellow";
+	}
+
+	And reopen the junk.html page in live server.
+
+12.	You can target multiple ids at once, for example:
+
+	#welcome,
+	#about {
+		border: 1px solid #000;
+		padding: 1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	And reopen the junk.html page in live server.
+
+13.	You can do nested selectors as well, e.g.:
+
+	#welcome p {
+		font-size: 1.5rem;
+	}
+
+14.	At the top of the CSS, add the following:
+	body {
+		background-color: green;
+	}
+
+	And reopen the junk.html page in live server.
+	Note that the background-color for the #welcome
+	div does NOT change.
+
+15.	Let's take a "break" here and talk about the
+	Google Chrome DevTools (F12).
+
+	Google Chrome Developer Tools Crash Course:
+	https://www.youtube.com/watch?v=x4q86IjJFag
+	Note: 4 years old and 51:20 in length!
+
+	We want to focus on the Elements tab on top.
+	This shows the HTML/left and the CSS/right.
+	NOTE: If is says user agent stylesheet:
+	Means it's a browser default.
+	NOTE: You can bring up any website here
+	and make changes.  They are only on a COPY.
+
+16.	Let's talk fonts/font-family now.
+
+	Under the body { CSS, add the following:
+		font-family: Arial, Helvetica, sans-serif;
+
+	https://www.dummies.com/web-design-development/wordpress/how-to-find-web-safe-fonts-for-your-wordpress-content/
+	https://www.impactplus.com/blog/sans-serif-vs-serif-font-which-should-you-use-when
+
+17.	Want something "more"?
+
+	Go out to fonts.google.com (Google Fonts).  1052 of them as of 6/10/2021
+
+	Search for Roboto.  Click the "+" sign upper right to bring up popup.
+	Click on popup.  Copy the Link tag to import into junk.html
+
+	Right above the <style> tags, paste in the link from above.
+
+	Then under the body { change the following:
+				font-family: Arial, Helvetica, sans-serif;
+
+	to:
+
+		       body {
+				font-family: 'Roboto', sans-serif;
+
+
+18.	font-size.  Standard is 16px (1rem).  Under the:
+
+	body {
+		font-family: 'Roboto', sans-serif;  	//	Add
+		font-size: 1.5rem;			//	And
+		line-height: 1.6em;
+
+	And reopen the junk.html page in live server.
+
+	Talk absolute (cm, mm, in, px, pt, pc) vs.
+	     relative (rem, em, vw, vh, %).
+
+19.	Add two <span> tags, one in each paragraph.
+
+	Then, back in the CSS, add the following:
+	#welcome p span {
+		font-weight: bold;			//	Can use 100 - 900 also
+	}
+
+	#about p span {
+		font-style: italic;
+	}
+
+20.	Now let' talk colors, background and text, etc.:
+	Can use standard colors: red, white, black, etc. OR
+	can use #rrggbb where a is red, b is blue, g is green (0 - 255) OR
+	can use #rrggbba where the a is for opacity (0 to 1, opaque to transparent) OR
+	can use #nnn or #nnnnnn from #000000 (#000) to #FFFFFF (or #FFF #ffffff #fff) OR
+	can use hsl (hue, saturation, light) or hsla (again for opacity)
+
+	Show color-hex.com as a reference
+
+21.	Next are backgrounds and borders:
+
+	JPG vs. PNG vs. WebP vs. GIF
+
+	Remove all <body> text and replace with this:
+
+	<div id="box-1">
+		<h3>Box One</h3>
+		<p>lorem 30 <p>
+	</div><br><br>
+
+	<div id="box-2">
+		<h3>Box Two</h3>
+		<p>lorem 30 <p>
+	</div><br><br>
+
+	<div id="box-3">
+		<h3>Box Three</h3>
+		<p>lorem 30 <p>
+	</div><br><br>
+
+	<div id="box-4">
+		<h3>Box Foure</h3>
+		<p>lorem 30 <p>
+	</div><br><br>
+
+	Save and open with Live Server.
+
+	Add the following CSS:
+	#box-1 {
+		background-color: red;
+		border: 3px yellow solid;	//	Or as 3 lines
+	}
+	
+	#box-2 {
+		background: brown;
+		color: #ff
+		border-top: 3px orange solid;
+		border-radius: 1rem;
+	}
+	
+	#box-3 {
+		background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FStar&psig=AOvVaw0Zvqrh1AYg2YMYrQchszN9&ust=1623426363470000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOiWrNG0jfECFQAAAAAdAAAAABAD");
+		background-repeat: no-repeat;
+		background-position: center center	//	Can also use something like 100px 100px;
+		background-size: cover;
+// Can replace all background above with the following 1 line instead:
+// background: url("stars url above") no-repeate center center/cover;
+				color: #fff;
+		height: 40rem;
+		width: 25rem;
+
+	}
+
+	#box-4 {
+		background: url("new image") no-repeat center center;
+		background-attachment: fixed;
+	}
+
+21.	Next is the CSS Box Model:
+	https://www.w3schools.com/css/css_boxmodel.asp
+
+	We'll use what we have.  Open DevTools.
+	Under styles, see the picture.  This is the box model.
+	Margin outside of border.  Padding inside of border.
+	
+	#box-4 {
+		background: #333;
+		border: 2px green solid;
+		width: 25rem;
+		margin: 1rem;
+		padding: 1rem;
+	}
+
+	Show Styles under Elements and Computed under Elements
+	Discuss CSS reset or our own as:
+
+	* {			//	* is known as universal
+		margin: 0;	//	Spacing around border  t, l, b, r
+		padding: 0;	//	Spacing around content t, l, b, r
+		box-sizing: border-box;
+	}
+
+22.	Next is alignment.
+	
+	Under <body>, add this:
+	<div class="container">
+		//	Put all other divs here
+	</div>
+
+	In CSS, add the following:
+	.container {
+		width: 60rem;
+		margin: 2rem auto;
+	}
+
+	Looks terrible on Mobile device.
+	Change width above to max-width.
+	Add the following CSS:
+
+	body {
+		font-family: Arial, Helvetica, sans-serif;
+		line-height: 1.4em;
+	}
+
+	.box {
+		background: #f4f4f4;
+		border: 1px solid #333;
+		padding: 1.5rem;
+		margin-bottom: 1rem;
+	}
+	
+	Explain text-align here.
+
+	.box p {
+		text-align: center;
+	}
+
+	Let's talk floats (old school):
+	Today should use Flexbox and/or CSS Grid
+
+	#box-2 {
+		float: left;
+		width: 70%;
+	}
+
+	#box-3 {
+		float: right;
+		width: 30%;
+
+	Explain clear: left/right/both;
+
+23.	Next is link state and button styling:
+
+	Remove all current <body> text.  Then add this:
+	<a class="btn" href="#">My Link</a><br><br>
+	<button class="btn">My Button</button>
+
+	Remove all current CSS.  Then add this:
+	a {
+		color: #333;
+		text-decoration: none
+	}
+
+	a:hover {
+		color: green;
+	}
+
+	a:visited {
+		color: red;
+	}
+
+	a:active {
+		color: orange;
+	}
+
+	.btn {
+		background: #4c6ca0;
+		color: #fff;
+		border: none;
+		font-size: 1rem;
+		padding: .75rem 1.25rem;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	btn:hover {
+		color: #f4f4f4;
+		background: #446190;
+	}
+	
+24.	Menu Example:
+
+	Traversy Example Shown Below:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Menu Styling</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background: #4c6ca0;
+      border-radius: 5px;
+      overflow: auto;
+    }
+
+    .navbar li {
+      float: left;
+    }
+
+    .navbar li a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 20px;
+    }
+
+    .navbar li a:hover {
+      background-color: #446190;
+      color: #f4f4f4;
+    }
+
+    /* Side Menu Styling */
+    .side-menu {
+      list-style: none;
+      border: 1px #ddd solid;
+      border-radius: 10px;
+      width: 300px;
+      padding: 20px;
+    }
+
+    .side-menu li {
+      font-size: 18px;
+      line-height: 2.4em;
+      border-bottom: dotted 1px #ddd;
+    }
+
+    .side-menu li:last-child {
+      border: none;
+    }
+
+    .side-menu li a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .side-menu li a:hover {
+      color: coral;
+    }
+  </style>
+</head>
+<body>
+  <ul class="navbar">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <br><br>
+  <ul class="side-menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</body>
+</html>
+
+25.	Inline, Block, and Inline-Block
+
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		li {
+			display: inline;
+		}
+
+		li a {
+			padding-right: 2rem;
+		}
+
+		img {
+			display: block;
+			margin: auto;
+		}
+
+		.box {
+			width: 32%;
+			display: inline-block;
+			background: #f4f4f4;
+			padding: 1.25rem;
+			margin-bottom: 1rem;
+		}
+	</style>
+
+	<body>
+		<!-- Block level to inline -->
+		<ul>
+			<li><a href="#">Category1</li>
+			<li><a href="#">Category2</li>
+			<li><a href="#">Category3</li>
+			<li><a href="#">Category4</li>
+		</ul><br><br><br>
+
+		<!-- Inline to block-level -->
+		<img src="leaf.jpg" alt="Picture of a leaf">
+
+		<div class="box">
+			<h3>Heading 1</h3>
+			<p>lorem 20</p>
+		</div>
+
+		<div class="box">
+			<h3>Heading 2</h3>
+			<p>lorem 20</p>
+		</div>
+
+		<div class="box">
+			<h3>Heading 3</h3>
+			<p>lorem 20</p>
+		</div>
+
+	</body>
+
+26.	Positioning.  TBLR = Top, Bottom. Left, Right
+
+	Types include:
+
+	Static: Not effacted by tblr properties/values
+
+	Relative: tblr values cause element to be
+		  moved from natural position
+
+	Absolute: Positioned relative to parent
+		  element that's positioned "relative"
+
+	Fixed: Positioned relative to viewport.
+
+	Sticky:	Positioned based on scroll position.
+
+	<style>
+		<!-- Temporary 4 lines below -->
+		body {
+			height: 250rem;
+		}
+
+		.box {
+			width: 100px;
+			height: 100px;
+		}
+
+		.container {
+			position: relative;
+			width: 500px;
+			height: 500px;
+			background: #333;
+		}
+
+		<!-- All default to position: static -->
+		#box-1 {
+			position: relative;
+			top: 50px;
+			left: 50px;
+			background: yellow;
+			z-index: 1;
+		}
+
+		#box-2 {
+			position: absolute;
+			bottom: 100px;
+			right: 100px;
+			background: green;
+		}
+
+		#box-3 {
+			position: absolute;
+			top: 100px;
+			left: 100px;
+			background: red;
+		}
+
+		#box-4 {
+			position: fixed;
+			background: blue;
+		}
+
+		#box-5 {
+			position: sticky;
+			top: 0;
+			background: orange;
+		}
+	</style>
+
+	<body>
+		<div id="box-1" class="box"></div>
+		<div class="container">
+			<div id="box-2" class="box"></div>
+			<div id="box-3" class="box"></div>
+		</div>
+		<div id="box-4" class="box"></div>
+		<div id="box-5" class="box"></div>
+	</body>	
+
+27.	Form styling challenge
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Form Styling</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        /* 
+        -May want to add "border-box for "box-sizing so padding does not affect width
+        -Reset margin and padding 
+       */
+      }
+
+      body {
+        /* 
+          -Background color is #344a72
+        */
+      }
+
+      a {
+        /* 
+        Underlined links are ugly :)
+       */
+      }
+
+      #container {
+        /* 
+        -Remember, margin: auto on left and right will center a block element 
+        -I would also set a "max-width" for responsiveness
+        -May want to add some padding
+        */
+      }
+
+      .form-wrap {
+        /* 
+          This is the white area around the form and heading, etc
+        */
+      }
+
+      .form-wrap h1,
+      .form-wrap p {
+        /* 
+          May want to center these
+        */
+      }
+
+      .form-wrap .form-group {
+        /* 
+          Each label, input is wrapped in .form-group
+        */
+      }
+
+      .form-wrap .form-group label {
+        /* 
+          Label should be turned into a block element
+        */
+      }
+
+      .form-wrap .form-group input {
+        /* 
+          Inputs should reach accross the .form-wrap 100% and have some padding
+        */
+      }
+
+      .form-wrap button {
+        /* 
+          Button should wrap accross 100% and display as block
+          Background color for button is #49c1a2
+        */
+      }
+
+      .form-wrap button:hover {
+        /* 
+          Hover background color for button is #37a08e
+        */
+      }
+
+      .form-wrap .bottom-text {
+        /* 
+          Bottom text is smaller
+        */
+      }
+
+      footer {
+        /* 
+        Should be centered
+       */
+      }
+
+      footer a {
+        /* 
+          Footer link color is #49c1a2
+        */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="form-wrap">
+        <h1>Sign Up</h1>
+        <p>It's free and only takes a minute</p>
+        <form>
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" name="firstName" id="first-name" />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" name="lastName" id="last-name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input type="password" name="pasword2" id="password2" />
+          </div>
+          <button type="submit" class="btn">Sign Up</button>
+          <p class="bottom-text">
+            By clicking the Sign Up button, you agree to our
+            <a href="#">Terms & Conditions</a> and
+            <a href="#">Privacy Policy</a>
+          </p>
+        </form>
+      </div>
+      <footer>
+        <p>Already have an account? <a href="#">Login Here</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
+	
+28.	Form styling solution:
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Form Styling</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin:0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Raleway', sans-serif;
+        background: #344a72;
+        color: #fff;
+        line-height: 1.8;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      #container {
+        margin: 30px auto;
+        max-width: 400px;
+        padding: 20px;
+      }
+
+      .form-wrap {
+        background: #fff;
+        padding: 15px 25px;
+        color: #333;
+      }
+
+      .form-wrap h1,
+      .form-wrap p {
+        text-align: center;
+      }
+
+      .form-wrap .form-group {
+        margin-top: 15px;
+      }
+
+      .form-wrap .form-group label {
+        display: block;
+        color: #666;
+      }
+
+      .form-wrap .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: #ddd 1px solid;
+        border-radius: 5px;
+      }
+
+      .form-wrap button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        background: #49c1a2;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .form-wrap button:hover {
+        background: #37a08e
+      }
+
+      .form-wrap .bottom-text {
+        font-size: 13px;
+        margin-top: 20px;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      footer a {
+        color:#49c1a2
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="form-wrap">
+        <h1>Sign Up</h1>
+        <p>It's free and only takes a minute</p>
+        <form>
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" name="firstName" id="first-name" />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" name="lastName" id="last-name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" />
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input type="password" name="pasword2" id="password2" />
+          </div>
+          <button type="submit" class="btn">Sign Up</button>
+          <p class="bottom-text">
+            By clicking the Sign Up button, you agree to our
+            <a href="#">Terms & Conditions</a> and
+            <a href="#">Privacy Policy</a>
+          </p>
+        </form>
+      </div>
+      <footer>
+        <p>Already have an account? <a href="#">Login Here</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
+
+29.	Visibility, Order, and Negative Margin:
+
+	<style>
+		h1 {
+			color: blue !important;
+			display: none;
+			<!-- visibility: hidden; -->
+			margin-top: -2rem;
+			margin-left: -2rem;
+			<!--	CANNOT have negative padding!!!   -->
+		}
+
+		.head {
+			color: red;
+		}
+	</style>
+
+	<body>
+		<h1 class="head">This is our h1 tag</h1>
+		<p>lorem 20</p>
+	</body>
+
+30.	Let's add CSS to our YCCMeMO website now!!!
+

@@ -1,0 +1,223 @@
+0.	Show the follwoing URLs:
+
+	https://www.w3schools.com/
+	https://www.w3schools.com/html/default.asp
+	https://www.w3schools.com/css/default.asp
+	https://www.w3schools.com/js/default.asp
+	https://developer.mozilla.org/en-US/
+	https://developer.mozilla.org/en-US/docs/Learn
+
+	https://www.youtube.com/playlist?list=PLHmT264NWfhr_YEpaa0Pl2bid120YmQUs
+
+00.	In Windows Search Box, key in File Explorer and hit <enter>. 
+	Do a View/Options/View and make sure under Advanced Settings
+	that the Hide extensions for known file types option is blackened.
+	Choose Apply/OK and close.
+
+1.	Right-click and make folder callmemo (You can call me MO).
+
+2.	Open this folder with VSCode
+
+3.	In here let's create a new file called index.html (explain meaning).
+
+4.	Open this file in VSCode. Here we will enter our HTML.
+	These are elements surrounded in angle brackets (<>).  HTML is a
+	tag-based language.  Most tags have a start tag and an </> end tag.
+	Some tags are "self-closing".
+	https://www.w3schools.com/TAGS/default.ASP
+
+5.	<h1>Welcome To My Website!</h1>
+	<p>lorem 30<enter></p>
+
+6.	Save.  Go back to desktop and double-click on index.html
+	to bring up the site.  Explain significance of index.html
+
+7.	Remove all of the code in there currently and then enter
+	the following:
+
+	<!DOCTYPE html>		<!-- Discuss.  Show w3schools exp.  -->
+	<html lang="en">	<!-- Explain what HTML comments are -->
+	  <head>		<!-- Page info does not display	    -->
+	    <title>YCCMM  | Home</title>
+	  </head>
+	  <body>
+	    <h1>My Website</h1>
+	    <p>This will be my website.</p>
+	  </body>
+	</html>
+	  
+8.	Save.  Go back to desktop and double-click on index.html
+	to bring up the site.  Right-mouse click on page and
+	choose View Page Source.  Explain then close.
+
+9.	Remove all code currently in the index.html file.
+	Then, from the empty file, key in !<enter>.  
+	Welcome to Emmet.
+
+10.	Click the VSCode Extensions icon.  Search for Live
+	Server.  Click install and reload to activate.
+	Now right-mouse click on the file while in VSCode
+	and choose Open With Live Server.  Explain why.
+
+11.	Add a paragraph.  Show how Live Server does an
+	immediate update for you.  Show how to stop LS.
+
+12.	<meta> tags are shown in the <head> section.
+	Go to your <head> section.  Let's go over the
+	<meta> tags you already have, i.e. charset,
+	viewport, ie-edge.
+
+13.	Go over <title> tag.  What, why.  Show using
+	Google suggest.
+
+14.	Add a description <meta> tag.
+	Add a keywords    <meta> tag.
+
+15.	<meta name="robots" content="NOINDEX, NOFOLLOW">
+	to have this NOT appear in search engines.
+
+16.	Add <h1>,...,<h6> tags to index.html
+	NOTE: Advised only 1 <h1> tag per page.
+	Open page with Live Server.
+
+17.	<p>lorem 100 for "dummy text"</p>
+	Open page with Live Server.
+
+18.	Show <b></b>, <i></i> and explain why
+	instead use <strong></strong>, <em></em>
+	Show <br> tag.  Show <hr> tag.
+	Open page with Live Server.
+
+19.	Let's add a hyperlink to external page (Ranken).
+	Add a new paragraph with the following:
+	<p>Click to go to the <a href="https://ranken.edu">
+	Ranken Technical College</a> website!</p>
+
+	Show this with/without a target="_blank" attribute
+	and explain why/how it is use on web pages.
+	We'll talk inline vs. block elements as we go on.
+
+20.	Copy index.html temp.html and then show a link to
+	an internal page.
+
+21.	Add a new images folder to the project.  Show how.
+	Show pexels.com and unsplash.com (others?).
+
+21.	Get a picture of the St. Louis Arch (first row middle)
+	from unsplash.com  Go over this slowly.  Save
+	to images folder as arch..
+
+22.	In index.html, add the following at the top of the <body>:
+	<img src="images/arch.png" 
+	 alt="Photo of the St. Louis Arch by Tiffany Cade on Unsplash">
+	Open page with Live Server.
+
+23.	Show a remote image, i.e. how to put in URL and not save image.
+
+24.	Go to URL: https://www.allrecipes.com/recipe/10813/best-chocolate-chip-cookies/
+
+	Explain <ul> (ingredients) vs. <ol> cooking directions.
+	Show bullet, square, circle, disc, none (don't do here), etc.
+	Show nesting for (e.g.) <ul> in an <ol> or vice-versa.
+
+25.	Generate 12 random names.  Create a simple table with fname/lname/c/s/z.
+	Show <table>, <thead>, <th>, <td>,<tbody>, <tfoot>, <caption>.
+	Add a border="1" for the the <table> tag.
+
+26.	Let's create an HTML form (will NOT be processed).
+	After the image, add the following HTML code:
+
+	<form action="#" method="post">
+	    <div>
+		<label for="firstName">First Name:</label>
+		<input type="text" id="firstName" name="firstName"><br>
+	    </div>
+
+	    <div>
+		<label for="lastName">Last Name:</label>
+		<input type="text" id="lastName" name="lastName"><br>
+	    </div>
+
+	    <div>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"
+		       placeholder="e.g. john@gmail.com"><br>
+	    </div>
+
+	    <div>
+		<label for="message">Message:</label>
+	    </div>
+		<textarea row="20" cols="50" id="message" name="message"><br><br>
+
+	    <div>
+		<label for="gender">Gender</label>
+		<select name="gender" id="gender">
+			<option value="female">Female</option>
+			<option value="male">Male</option>
+			<option value="other">Other</option>
+		</select>
+	    </div>
+
+	    <div>
+		<label for="age">Age</label>
+		<input type="number" name="age" id="age"
+		       min="1" max="130">
+	    </div>
+
+	    <div>
+		<label for="birthdate">Birthdate</label>
+		<input type="date" name="birthdate" id="birthdate">
+	    </div>
+
+	    <div>
+		<label for="shift">Desired Shift (Choose one)</label>
+		<input type="radio" name="shift" id="first">First (7 a.m. - 3 p.m.)
+		<input type="radio" name="shift" id="second">Second (3 p.m. - 11 p.m.)
+		<input type="radio" name="shift" id="third">Third (11 p.m. - 7 a.m.)
+	    </div>
+
+	    <div>
+		<label for="contactvia">Contact Via (Choose one)</label>
+		<input type="checkbox" name="contactvia" id="phone">Phone Call
+		<input type="checkbox" name="contactvia" id="text">Text Message
+		<input type="checkbox" name="contactvia" id="email">Email
+	    </div>
+
+	    <div>
+		<input type="submit" value="Submit">&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="reset"  value="Reset">
+	    </div>
+	</form>
+
+27.	Block elements vs. inline elements:
+	https://www.w3schools.com/html/html_blocks.asp
+
+	Show two paragraphs vs. two <a> elements.
+	For the paras, add style="border:2px solid green"
+	For the a's, add style ="border:2px solid red"
+
+28.	Div elements vs. span elements:
+	https://www.w3schools.com/tags/tag_div.asp
+	https://www.w3schools.com/tags/tag_span.asp
+
+	Show a div with 2 paragraphs.
+	Add a class to the div.
+	Add a different id to each paragraph.
+
+	Show div example
+	Show span example
+
+29.	HTML Entities - Show examples
+	https://www.w3schools.com/html/html_entities.asp
+
+	Show a &copy; copyright example
+	Show a &lt; and &gt; example
+
+30.	HTML5 semantic elements (history here?)
+	https://www.w3schools.com/html/html5_semantic_elements.asp
+	Show the pix and explain the tags below (min).
+
+	<header>, <footer>, <nav>, <main>, <section>,
+	<article>, <aside>, <footer>
+
+31.	Let's start building our YCCMeMO website now!!!
